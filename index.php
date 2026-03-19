@@ -63,7 +63,11 @@
         input::placeholder {
             color: #999;
         }
-        
+
+        input:invalid {
+            border: 2px solid red;
+        }
+                
         button {
             width: 100%;
             padding: 12px;
@@ -102,7 +106,15 @@
     </style>
 </head>
 <body>
+ 
     <div class="register-form">
+        <?php
+        $success = isset($_GET['success']);
+        $message = isset($_GET['message']) ? $_GET['message'] : '';
+        if ($success) {
+        echo '<div class="success-message">'.$message."</div>";
+        }
+        ?>
         <h1>Регистрация</h1>
         
         <form method="POST" action="action.php">
@@ -118,18 +130,18 @@
             
             <div class="form-group">
                 <label>Пароль:</label>
-                <input type="password" name="email" placeholder="Введите пароль">
+                <input type="password" name="password" placeholder="Введите пароль">
             </div>
             
             <div class="form-group">
                 <label>Подтвердите пароль:</label>
-                <input type="password" name="email" placeholder="Повторите пароль">
+                <input type="password" name="confirm_password" placeholder="Повторите пароль">
             </div>
 
             <div class="form-group">
                 <label>Выберите пол:</label>
                 <select name="gender">
-                    <option>Пол</option>
+                    <option></option>
                     <option>Мужчина</option>
                     <option>Женщина</option>
                 </select>
@@ -139,6 +151,7 @@
                 <input type="checkbox"> 
                 <label>Создавая учетную запись, вы соглашаетесь с нашими <a href="url">Условиями договора</a></label>
             </div>
+
         </form>
         
     </div>
