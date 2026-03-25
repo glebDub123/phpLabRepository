@@ -58,6 +58,13 @@
         foreach($array as $item){
             mkdir("test/$item");
         }
+
+
+        echo "</br>";
+        foreach(glob("*.jpg") as $file){
+  	        echo "Изображение: ". basename($file) . "<br>";
+        } 
+
     ?>
 </body>
 </html>
