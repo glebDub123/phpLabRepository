@@ -23,6 +23,11 @@
         rename("mir.txt","folder/mir.txt");
 
         copy("folder/mir.txt","folder/world.txt");
+
+        $size = filesize("folder/world.txt");
+        echo "Размер: " . $size. " байт<br>";
+        echo "Размер: " . $size / 1048576 . " МБ<br>";
+        echo "Размер: " . $size / 1073741824 . " ГБ<br>";
     ?>
 </body>
 </html>
