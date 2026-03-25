@@ -44,6 +44,9 @@
         else{
             echo "Файл world.txt не существует <br>"; 
         }
+
+
+        mkdir("test");
     ?>
 </body>
 </html>
