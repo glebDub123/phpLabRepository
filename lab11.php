@@ -16,6 +16,8 @@
 
         $file = fopen("test.txt","r");
         echo fgets($file)."</br>";
+
+        rename("test.txt","mir.txt");
     ?>
 </body>
 </html>
