@@ -47,6 +47,8 @@
 
 
         mkdir("test");
+
+        rename("test","www");
     ?>
 </body>
 </html>
