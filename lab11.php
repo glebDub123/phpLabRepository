@@ -28,6 +28,8 @@
         echo "Размер: " . $size. " байт<br>";
         echo "Размер: " . $size / 1048576 . " МБ<br>";
         echo "Размер: " . $size / 1073741824 . " ГБ<br>";
+
+        unlink("folder/world.txt");
     ?>
 </body>
 </html>
