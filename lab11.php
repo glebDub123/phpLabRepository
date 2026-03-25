@@ -51,6 +51,13 @@
         rename("test","www");
 
         rmdir("www");
+           
+        mkdir("test");
+        $array = ['Folder1',"newF","someFolder","chto-to-folder"];
+        
+        foreach($array as $item){
+            mkdir("test/$item");
+        }
     ?>
 </body>
 </html>
