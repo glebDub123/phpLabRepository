@@ -30,6 +30,20 @@
         echo "Размер: " . $size / 1073741824 . " ГБ<br>";
 
         unlink("folder/world.txt");
+
+        if(file_exists("folder/mir.txt") ==true){
+            echo "Файл mir.txt существует <br>"; 
+        }
+        else{
+            echo "Файл mir.txt не существует <br>"; 
+        }
+
+        if(file_exists("folder/world.txt") ==true){
+            echo "Файл world.txt существует <br>"; 
+        }
+        else{
+            echo "Файл world.txt не существует <br>"; 
+        }
     ?>
 </body>
 </html>
