@@ -10,7 +10,7 @@
             return $this->name;
         } 
         public function setAge($newAge){
-            if($newAge>=18){
+            if($this->checkAge($newAge)){
                 $this->age = $newAge;
             }
             else{
@@ -26,8 +26,8 @@
             return $sumSalary;
         }
 
-        public function checkAge(){
-            if($this->age>18){
+        private function checkAge($age){
+            if($age>=18){
                 return true;
             }
             return false;
@@ -65,5 +65,10 @@
     $employee2->setAge(20);
     
     //Задание 9
-    echo "Проверка возраста - ".$employee2->checkAge();
+    //echo "Проверка возраста - ".$employee2->checkAge();
+
+    //Задание 10
+    $employee1->setAge(12);
+    $employee2->setAge(20);
+
 ?>
