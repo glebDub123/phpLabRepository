@@ -10,7 +10,12 @@
             return $this->name;
         } 
         public function setAge($newAge){
-            $this->age = $newAge;
+            if($newAge>=18){
+                $this->age = $newAge;
+            }
+            else{
+                echo "Вам работать в нашей компании еще рано</br>";
+            }
         }
 
         public function getSalary($employees){
@@ -19,6 +24,13 @@
                 $sumSalary += $employee->salary;
             }
             return $sumSalary;
+        }
+
+        public function checkAge(){
+            if($this->age>18){
+                return true;
+            }
+            return false;
         }
     }
 
@@ -39,7 +51,7 @@
     echo "Сумма зарплат работников: ".$employee1->salary+$employee2->salary."</br>";
 
     //Задание 3-5
-
+    
     echo "Имя - ".$employee1->getName()."</br>";
 
     //Задание 6
@@ -48,5 +60,10 @@
     //Задание 7
     $employee1->setAge(55);
     
+    //Задание 8
+    $employee2->setAge(12);
+    $employee2->setAge(20);
     
+    //Задание 9
+    echo "Проверка возраста - ".$employee2->checkAge();
 ?>
