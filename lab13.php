@@ -20,7 +20,6 @@
     $employee2->salary = 20000;
 
     //Задание 2
-
     echo "Сумма возрастов работников: ".$employee1->age+$employee2->age."</br>";
     echo "Сумма зарплат работников: ".$employee1->salary+$employee2->salary."</br>";
 
