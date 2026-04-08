@@ -33,6 +33,23 @@ class BlogPage extends Page{
     }
 }
 
+$page;
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 'page';
+}
+echo "<a href='?page=page'>Главная страница</a> | ";
+echo "<a href='?page=blog'>Чай или Кофе</a>";
+echo "<hr>";
+
+if ($page === 'blog') {
+    $blogPage = new BlogPage();
+    $blogPage->render();
+} else {
+    $defaultPage = new Page();
+    $defaultPage->render();
+}
 ?>
 
 <style>
@@ -52,6 +69,10 @@ class BlogPage extends Page{
         border: none;
         padding: 8px 16px;
         border-radius: 5px;
+        cursor: pointer;
+    }
+    .card button:hover {
+        background: #45a049;
     }
 </style>
 
