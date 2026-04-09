@@ -7,16 +7,26 @@ abstract class Figure {
     abstract public function infoAbout() : string;
 }
 
-class Rectangle extends Rectangle{
-
+class Rectangle extends Figure implements IArea{
+    private integer $a;
+    private integer $b;
+    protected $sides_count = 4;
 }
 
-class Triangle extends Rectangle{
-
+class Triangle extends Figure implements IArea{
+    private integer $a;
+    private integer $b;
+    private integer $c;
+    protected $sides_count = 3;
 }
 
-class Square extends Rectangle{
+class Square extends Figure implements IArea{
+    private integer $a;
+    protected $sides_count = 4;
+}
 
+interface IArea {
+    public function calculateArea() : integer;
 }
 ?>
 
