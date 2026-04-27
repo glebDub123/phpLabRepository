@@ -16,9 +16,12 @@ lab11.php
 lab12.php
 lab13.php
 lab14.php
+lab15.php
 some1.jpg
 some2.jpg
 some3.jpg
 # Игнорирование папки с зависимостями
 /vendor/
 /lab10/
+/api/
+/client/
