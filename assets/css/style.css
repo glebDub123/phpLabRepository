@@ -1,5 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
 nav a.active {
-    font-weight: bold;
-    color: #f00;
+    background: #555;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 10px;
+    min-height: 400px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+button {
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
 }
 
