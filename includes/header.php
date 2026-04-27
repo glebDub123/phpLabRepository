@@ -5,7 +5,15 @@ $menuItems = [
     'Контакты' => '/pages/contact.php'
 ];
 ?>
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 <header>
     <nav>
         <ul>
