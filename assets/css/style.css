@@ -57,3 +57,22 @@ button {
     cursor: pointer;
 }
 
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav a {
+        display: block;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    input, textarea, button {
+        font-size: 16px;
+    }
+}
