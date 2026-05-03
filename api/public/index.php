@@ -68,6 +68,44 @@ switch ($action) {
             echo json_encode(['error' => 'Ошибка при удалении записи']);
         }
         break;
+    case "edit":
+        case 'edit':
+        if ($method !== 'POST') {
+            http_response_code(405);
+            echo json_encode(['error' => 'Используйте метод POST для редактирования']);
+            break;
+        }
+        $input = $_POST;
+        
+        $country = $input['country'] ?? '';
+        $city = $input['city'] ?? '';
+
+        if (empty($country) || empty($city)) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Поля country и city обязательны']);
+            break;
+        }
+        
+        $check = pg_query_params($conn, "SELECT id FROM cities WHERE id = $1", [$id]);
+        
+        if (pg_num_rows($check) === 0) {
+            http_response_code(404);
+            echo json_encode(['error' => "Запись с id=$id не найдена"]);
+            break;
+        }
+        
+        $result = pg_query_params($conn, "UPDATE cities SET country = $1, city = $2 WHERE id = $3", [$country, $city, $id]);
+        
+        if ($result) {
+            $updated = pg_query_params($conn, "SELECT * FROM cities WHERE id = $1", [$id]);
+            $updatedData = pg_fetch_assoc($updated);
+            
+            echo json_encode(['message' => "Запись с id=$id успешно обновлена"]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['error' => 'Ошибка при обновлении записи']);
+        }
+        break;
     default:
        // Устанавливаем HTTP-статус 404 (Not Found)
        http_response_code(404);
