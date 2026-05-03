@@ -1,10 +1,6 @@
 <?php
 $date = $_GET['date'];
 
-if (!$date) {
-    echo 'Ошибка: укажите date в формате ГГГГ-ММ-ДД';
-}
-
 $dateTime = strtotime($date);
 
 if (!$dateTime) {
