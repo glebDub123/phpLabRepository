@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') exit(0);
 $method = $_SERVER['REQUEST_METHOD'];
 // Получаем только конечную часть пути — имя действия (например, 'hello' из '/api/hello')
 $action = $_GET['action'] ?? '';
-
+$id = $_GET['id'] ?? null;
 
 // Выбираем логику обработки в зависимости от значения $action
 switch ($action) {
@@ -39,6 +39,17 @@ switch ($action) {
         }
         
         echo json_encode($allData);
+        break;
+    case "get":
+        $result = pg_query_params($conn, "SELECT * FROM cities WHERE id = $1", [$id]);
+        $data = pg_fetch_assoc($result);
+        
+        if ($data) {
+            echo json_encode($data);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => "Запись с id=$id не найдена"]);
+        }
         break;
    default:
        // Устанавливаем HTTP-статус 404 (Not Found)
