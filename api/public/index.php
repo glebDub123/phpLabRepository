@@ -51,7 +51,24 @@ switch ($action) {
             echo json_encode(['error' => "Запись с id=$id не найдена"]);
         }
         break;
-   default:
+    case "del":
+        $check = pg_query_params($conn, "SELECT id FROM cities WHERE id = $1", [$id]);
+        
+        if (pg_num_rows($check) === 0) {
+            http_response_code(404);
+            echo json_encode(['error' => "Запись с id=$id не найдена"]);
+            break;
+        }
+        $result = pg_query_params($conn, "DELETE FROM cities WHERE id = $1", [$id]);
+        if ($result) {
+            echo json_encode(['message' => "Запись с id=$id успешно удалена"]);
+        } 
+        else {
+            http_response_code(500);
+            echo json_encode(['error' => 'Ошибка при удалении записи']);
+        }
+        break;
+    default:
        // Устанавливаем HTTP-статус 404 (Not Found)
        http_response_code(404);
        // Возвращаем ошибку в формате JSON
